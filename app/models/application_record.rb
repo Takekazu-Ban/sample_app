@@ -1,3 +1,4 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 end
+Refile.secret_key = '7bcb01c7beab03f20eea67914839d5488c8ee5c49b0b81dc96aab90d3808238102bca1325c8efb9a2b4d7997da3f572e745374aa281429b80ef2397374807d48'
