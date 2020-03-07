@@ -1,6 +1,6 @@
 class TodolistsController < ApplicationController
   def new
-  	@list =List.new
+  	@list = List.new
   end
   def create
   	#ストロングパラメーターを使用
@@ -8,15 +8,25 @@ class TodolistsController < ApplicationController
   	#DBへ保存すろ
   	list.save
   	#詳細画面へリダイレクト
-  	redirect_to todolist_path(list)
+  	redirect_to todolist_path(list.id)
 	end
 
 	def index
-		@lists = List.all
+		@todolists = List.all
 	end
 
   def show
     @list = List.find(params[:id])
+  end
+
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+      list = List.find(params[:id])
+      list.update(list_params)
+      redirect_to todolist_path(list.id)
   end
 
 	private
